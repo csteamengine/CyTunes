@@ -56,7 +56,7 @@ Essentially, I turned the Pi into a wireless router so that sends out a wifi sig
       sudo apt-get install dnsmasq hostapd
 ### Configure the interfaces
       sudo nano /etc/dhcpcd.conf
-    and add the following to the bottom
+  and add the following to the bottom
       denyinterfaces wlan0 
       
       
