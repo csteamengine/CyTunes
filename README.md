@@ -13,7 +13,11 @@ Essentially, I turned the Pi into a wireless router so that sends out a wifi sig
   - SSH connection to pi with laptop or IPad using same wifi
   - Multiple connections possible with multiple devices
   - Library of songs viewable from phone or tablet
+
 ## Cons:
   - Can't use Pi's wifi to connect to internet anymore so no Spotify
 
 # Steps
+## Install Mopidy
+
+## Number 2
