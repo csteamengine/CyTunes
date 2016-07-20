@@ -75,7 +75,7 @@ iface wlan0 inet static
 ```
 sudo nano /etc/hostapd/hostapd.conf
 ```
-And add the following
+And add the following (You can edit the password and ssid values to that of your choosing.)
 ```
 # This is the name of the WiFi interface we configured above
 interface=wlan0
@@ -122,4 +122,20 @@ wpa_passphrase=raspberry
 # Use AES, instead of TKIP
 rsn_pairwise=CCMP
 ```
-      
+#### To check if it is working run
+```
+sudo /usr/sbin/hostapd /etc/hostapd/hostapd.conf
+```
+The above will create a wifi signal that your computer or phone can connect to, but it will not share the internet connection.
+#### edit config file location
+```
+sudo nano /etc/default/hostapd
+```
+and find the line 
+```
+#DAEMON_CONF="" 
+```
+and replace it with 
+```
+DAEMON_CONF="/etc/hostapd/hostapd.conf"
+```
