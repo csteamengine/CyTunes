@@ -50,6 +50,11 @@ Essentially, I turned the Pi into a wireless router so that sends out a wifi sig
 #### To change the directory the music is pulled from, add this to the config file
       [local]
       media_dir = <Your_Directory_Name>
+#### Set mopidy to run at boot
+```
+sudo dpkg-reconfigure mopidy
+```
+  - and set mopidy to run at boot by selecting yes
 
 ## Set Pi up as access point -- [Or follow these instructions](https://frillip.com/using-your-raspberry-pi-3-as-a-wifi-access-point-with-hostapd/)
 ### Install Hostapd and DNSMASQ
@@ -127,6 +132,7 @@ rsn_pairwise=CCMP
 sudo /usr/sbin/hostapd /etc/hostapd/hostapd.conf
 ```
   - The above will create a wifi signal that your computer or phone can connect to, but it will not share the internet connection.
+
 #### edit config file location
 ```
 sudo nano /etc/default/hostapd
@@ -138,4 +144,48 @@ sudo nano /etc/default/hostapd
   - and replace it with 
 ```
 DAEMON_CONF="/etc/hostapd/hostapd.conf"
+```
+#### Configure DNSMASQ
+  - copy the dnsmasq config file to save it
+
+```
+sudo mv /etc/dnsmasq.conf /etc/dnsmasq.conf.orig  
+sudo nano /etc/dnsmasq.conf  
+```
+  - paste the following into the file
+```
+interface=wlan0      
+listen-address=172.24.1.1 
+bind-interfaces      
+server=8.8.8.8       
+domain-needed        
+bogus-priv            
+dhcp-range=172.24.1.50,172.24.1.150,12h 
+```
+#### sysctl.conf
+```
+sudo nano /etc/sysctl.conf
+```
+  - and remove the # from the beginning of the line containing `net.ipv4.ip_forward=1`. 
+
+#### Share internet connection
+```
+sudo iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE  
+sudo iptables -A FORWARD -i eth0 -o wlan0 -m state --state RELATED,ESTABLISHED -j ACCEPT  
+sudo iptables -A FORWARD -i wlan0 -o eth0 -j ACCEPT
+sudo sh -c "iptables-save > /etc/iptables.ipv4.nat"
+```
+#### Edit rc.local
+```
+sudo nano /etc/rc.local
+```
+and just above the line containing `exit 0` add
+```
+iptables-restore < /etc/iptables.ipv4.nat  
+```
+
+### Now just start the services
+```
+sudo service hostapd start  
+sudo service dnsmasq start 
 ```
