@@ -19,27 +19,18 @@ Essentially, I turned the Pi into a wireless router so that sends out a wifi sig
 
 # Steps
 ## Install Mopidy
-  ### Install the newest version of Raspbian, write it to an SD card, and boot up the Pi
+### Install the newest version of Raspbian, write it to an SD card, and boot up the Pi
   
-  ### Open up terminal for the following commands.
+### Open up terminal for the following commands.
   
-  ### Add the archives GPG key
-  
-      ```
+### Add the archives GPG key
       wget -q -O - https://apt.mopidy.com/mopidy.gpg | sudo apt-key add -
-      ```
       
-  ### Pull down the Mopidy Repo   -- You may need to get the most up to date repo
-  
-      ```
+### Pull down the Mopidy Repo   -- You may need to get the most up to date repo
       sudo wget -q -O /etc/apt/sources.list.d/mopidy.list https://apt.mopidy.com/jessie.list
-      ```
-      
-  ### Install Mopidy and all dependencies
-  
-      ```
+
+### Install Mopidy and all dependencies
       sudo apt-get update
       sudo apt-get install mopidy
-      ```
-      
+
 ## Number 2
