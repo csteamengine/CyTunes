@@ -33,4 +33,24 @@ Essentially, I turned the Pi into a wireless router so that sends out a wifi sig
       sudo apt-get update
       sudo apt-get install mopidy
 
+### Set some config values
+#### Create and edit a config file
+      sudo nano .config/mopidy/mopidy.conf
+#### Add these lines
+      [mpd]
+      hostname = ::
+
+      [spotify]
+      username = alice
+      password = mysecret
+      
+#### To check current config run
+      mopidy config
+#### Any of the values printed out above can be copied into the file we edited above and changed.
+#### To change the directory the music is pulled from, add this to the config file
+      [local]
+      media_dir = <Your_Directory_Name>
+
+
+      
 ## Number 2
