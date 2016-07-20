@@ -18,7 +18,7 @@ Essentially, I turned the Pi into a wireless router so that sends out a wifi sig
   - Can't use Pi's wifi to connect to internet anymore so no Spotify
 
 # Steps
-## Install Mopidy
+## Install Mopidy  -  [Or follow these instructions](https://mopidy.readthedocs.io/en/latest/installation/raspberrypi/)
 ### Install the newest version of Raspbian, write it to an SD card, and boot up the Pi
   
 ### Open up terminal for the following commands.
@@ -51,6 +51,12 @@ Essentially, I turned the Pi into a wireless router so that sends out a wifi sig
       [local]
       media_dir = <Your_Directory_Name>
 
-
+## Set Pi up as access point -- [Or follow these instructions](https://frillip.com/using-your-raspberry-pi-3-as-a-wifi-access-point-with-hostapd/)
+### Install Hostapd and DNSMASQ
+      sudo apt-get install dnsmasq hostapd
+### Configure the interfaces
+      sudo nano /etc/dhcpcd.conf
+    and add the following to the bottom
+      denyinterfaces wlan0 
       
-## Number 2
+      
