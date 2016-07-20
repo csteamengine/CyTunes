@@ -71,7 +71,11 @@ iface wlan0 inet static
     broadcast 172.24.1.255
 #    wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
 ```
-#### hostapd.conf
+#### hostapd.conf -- Create this file 
+```
+sudo nano /etc/hostapd/hostapd.conf
+```
+And add the following
 ```
 # This is the name of the WiFi interface we configured above
 interface=wlan0
