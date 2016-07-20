@@ -189,3 +189,15 @@ iptables-restore < /etc/iptables.ipv4.nat
 sudo service hostapd start  
 sudo service dnsmasq start 
 ```
+OR
+```
+sudo reboot
+```
+## Notes
+  - When the pi reboots, mopidy and the wifi signal should now both start automatically.
+  - To use mopidy
+    - Connect to the Pi's wifi signal
+    - Either download the app MPod or MPad
+    - or
+    - Go to the servers address in the url of a web browser.
+
