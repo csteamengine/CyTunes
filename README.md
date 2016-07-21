@@ -200,4 +200,7 @@ sudo reboot
     - Either download the app MPod or MPad
     - or
     - Go to the servers address in the url of a web browser.
-
+  - You may need to install a gstreamer library in order for mopidy to recognize .m4a files and other extensions.
+  - If you plan on not having the Pi connected to an ethernet, remember to download all the packages and extensions you need before     hand.
+    - For example, I am using mine as a tailgate music player, so I have no internet connection. The wifi is being used purely as a
+      means of connecting two computers.
