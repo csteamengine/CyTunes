@@ -13,9 +13,11 @@ Essentially, I turned the Pi into a wireless router so that sends out a wifi sig
   - SSH connection to pi with laptop or IPad using same wifi
   - Multiple connections possible with multiple devices
   - Library of songs viewable from phone or tablet
+  - Currently hosting a library of 197,483 songs and it runs fine
+    - did take 2.5 hours to scan music directory though 
 
 ## Cons:
-  - Can't use Pi's wifi to connect to internet anymore so no Spotify
+  - Can't use Pi's wifi to connect to internet anymore so no Spotify (Unless ethernet)
 
 # Steps
 ## Install Mopidy  -  [Or follow these instructions](https://mopidy.readthedocs.io/en/latest/installation/raspberrypi/)
@@ -197,7 +199,7 @@ sudo reboot
   - When the pi reboots, mopidy and the wifi signal should now both start automatically.
   - To use mopidy
     - Connect to the Pi's wifi signal
-    - Either download the app MPod or MPad
+    - Either download the app MPod or MPad (iOS -- Other apps for Android)
     - or
     - Go to the servers address in the url of a web browser.
   - You may need to install a gstreamer library in order for mopidy to recognize .m4a files and other extensions.
